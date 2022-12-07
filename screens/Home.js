@@ -10,9 +10,7 @@ import { StyleSheet, Text, View} from 'react-native';
 export default function HomeScreen({navigation}) {
   return (
 
-    <View style={[styles.container, {
-        flexDirection: "column"
-        }]}>
+    <View style={styles.container}>
         <View style={{ flex: 2, display:"flex", justifyContent:"center", alignItems: "center",}}>
           <Avatar
             avatarStyle={styles.avatar}
@@ -40,7 +38,7 @@ export default function HomeScreen({navigation}) {
           <Button buttonStyle={styles.button} title="Login"/>
           <Button 
           buttonStyle={styles.button2} 
-          onPress={() => navigation.navigate('Inicial')}
+          onPress={() => navigation.navigate('Usuário')}
           title="Cadastre-se"
         />
         </View>
@@ -52,10 +50,12 @@ export default function HomeScreen({navigation}) {
     container: {  
       flex: 1,
       justifyContent: "center",
+      flexDirection: "column",
       maxHeight:900,
       maxWidth:500,
       padding: 20,
       backgroundColor: "#f2dcd5",
+      border: "solid",
     },
     button: {
       marginBottom:20,

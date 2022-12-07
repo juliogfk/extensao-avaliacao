@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import reactDom from 'react-dom';
 import { StyleSheet, Text, View} from 'react-native';
 import {Button, Input, Avatar} from 'react-native-elements'
+import { color } from 'react-native-elements/dist/helpers';
 
 const Flex = () => {
   return (
@@ -33,23 +34,31 @@ const Flex = () => {
     </View>
     
     <View style={{ flex: 1, padding: 30,}} >
-      <Button title="Login" style={{paddingBottom: 20,}}  />
-      <Button title="Cadastre-se" />
+      <Button buttonStyle={styles.button} title="Login"/>
+      <Button buttonStyle={styles.button2} title="Cadastre-se"/>
     </View>
   </View>
   );
   };
   
   const styles = StyleSheet.create({
-  container: {  
-  flex: 1,
-  justifyContent: "center",
-  padding: 20,
-  backgroundColor: "#f2dcd5",
-  },
-  
-
-  });
+    container: {  
+      flex: 1,
+      justifyContent: "center",
+      maxHeight:900,
+      maxWidth:500,
+      padding: 20,
+      backgroundColor: "#f2dcd5",
+    },
+    button: {
+      marginBottom:20,
+      backgroundColor: "#0468cc",
+           
+    },
+    button2: {
+      backgroundColor: "#fd0000"      
+    },
+});
 
   
   export default Flex;

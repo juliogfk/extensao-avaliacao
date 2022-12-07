@@ -49,6 +49,6 @@ export default function InicialScreen({navigation}) {
         button: {
             margin: 10,
             padding: 15,
-          backgroundColor: "#0468cc",
+            backgroundColor: "#0468cc",
         },
      });

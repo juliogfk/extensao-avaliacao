@@ -1,11 +1,10 @@
-import * as React from "react";
+import React, {useState, useEffect} from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Button, Input, Avatar } from 'react-native-elements';
-import { color } from 'react-native-elements/dist/helpers';
-import { StatusBar } from 'expo-status-bar';
+import { Button, Input, Avatar, Header, ListItem } from 'react-native-elements';
 import reactDom from 'react-dom';
 import { StyleSheet, Text, View} from 'react-native';
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function InicialScreen({navigation}) {
     return (

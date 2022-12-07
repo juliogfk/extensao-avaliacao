@@ -9,7 +9,7 @@ const Flex = () => {
   <View style={[styles.container, {
     flexDirection: "column"
     }]}>
-    <View style={{ flex: 2, display:"flex", justifyContent:"center", alignItems: "center",}} >
+    <View style={{ flex: 2, display:"flex", justifyContent:"center", alignItems: "center",}}>
       <Avatar
         avatarStyle={styles.avatar}
         size={300}
@@ -33,7 +33,7 @@ const Flex = () => {
       <Input style={{backgroundColor:"white",border: "solid"}}></Input>
     </View>
     
-    <View style={{ flex: 1, padding: 30,}} >
+    <View style={{ flex: 1, padding: 30,}}>
       <Button buttonStyle={styles.button} title="Login"/>
       <Button buttonStyle={styles.button2} title="Cadastre-se"/>
     </View>
@@ -53,7 +53,6 @@ const Flex = () => {
     button: {
       marginBottom:20,
       backgroundColor: "#0468cc",
-           
     },
     button2: {
       backgroundColor: "#fd0000"      

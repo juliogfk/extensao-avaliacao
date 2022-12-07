@@ -19,7 +19,6 @@ const Flex = () => {
         activeOpacity={0.7}
         containerStyle={{flex: 2, marginLeft: 20, marginTop: 115}}
       />
-
     </View>
     
     <View style={{ flex: 1, padding: 25, paddingBottom: 30 }}>

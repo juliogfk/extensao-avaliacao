@@ -23,7 +23,7 @@ export default function HomeScreen({navigation}) {
           />
         </View>
         
-        <View style={{ flex: 1, padding: 25, paddingBottom: 30 }}>
+        <View style={{ flex: 1, padding: 25, paddingBottom: 80 }}>
           <Text style={{display:"flex",alignItems:"center",fontSize: 20, padding:10}}>
               Login
           </Text>
@@ -34,8 +34,12 @@ export default function HomeScreen({navigation}) {
           <Input style={{backgroundColor:"white",border: "solid"}}></Input>
         </View>
         
-        <View style={{ flex: 1, padding: 30,}}>
-          <Button buttonStyle={styles.button} title="Login"/>
+        <View style={{ flex: 1, padding: 30}}>
+          <Button 
+          buttonStyle={styles.button} 
+          onPress={() => navigation.navigate('Listar')}
+          title="Login"
+          />
           <Button 
           buttonStyle={styles.button2} 
           onPress={() => navigation.navigate('Usuário')}

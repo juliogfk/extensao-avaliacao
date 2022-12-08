@@ -29,11 +29,14 @@ export default function ListaScreen({ route, navigation }) {
   return (
     <View>
       <Header
-        centerComponent={{ text: "Listar", style: { color: "#fff" } }}
+        centerComponent={{ text: "Lista de contatos", style: { color: "#fff", fontSize:20 } }}
         rightComponent={
           <Button title="+" onPress={() => navigation.navigate("Inserir")} />
         }
-      />
+        leftComponent={
+          <Button title="<" onPress={() => navigation.navigate("Home")} />
+        }
+    />
       <ScrollView>
         {list.map((linha, i) => (
           <ListItem

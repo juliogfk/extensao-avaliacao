@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import axios from "axios";
 import { Button, Avatar, Header, ListItem } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
+import FlashMessage, {showMessage} from "react-native-flash-message";
 
 export default function InserirScreen({ route, navigation }) {
   const [getNome, setNome] = useState();
@@ -19,7 +20,10 @@ export default function InserirScreen({ route, navigation }) {
         cpf: getCpf,
       })
       .then(function (response) {
-        console.log(response);
+            showMessage({
+                message:"Registro Inserido",
+                type:"success",
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -27,39 +31,51 @@ export default function InserirScreen({ route, navigation }) {
   }
 
   return (
-    <View style={{ alignItems: "center" }}>
+    
+    <View style={{alignItems: "center"}}>
+      <FlashMessage position="top" />  
       <Header
-        centerComponent={{ text: "Listar Dados", style: { color: "#fff" } }}
+        centerComponent={{ text: "Inserir Dados", style: { color: "#fff", fontSize:20 } }}
         leftComponent={
           <Button title="<" onPress={() => navigation.navigate("Listar")} />
         }
       />
+    <View style={{marginTop:150}}>
       <Text>Digite seu nome</Text>
       <TextInput
-        style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1 }}
+        style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1, marginBottom:10 }}
         onChangeText={(text) => setNome(text)}
         value={getNome}
-      />
+        />
 
       <Text>Digite seu telefone</Text>
       <TextInput
-        style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1 }}
+        style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1, marginBottom:10 }}
         onChangeText={(text) => setTelefone(text)}
         value={getTelefone}
-      />
+        />
 
       <Text>Digite seu CPF</Text>
       <TextInput
-        style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1 }}
+        style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1, marginBottom:20  }}
         onChangeText={(text) => setCpf(text)}
         value={getCpf}
-      />
+        />
+    </View>  
 
-      <Button
+      <Button 
+        buttonStyle={styles.button}
         title="Salvar Dados"
         style={{ paddingTop: 20, width: 300 }}
         onPress={() => inserirDados()}
-      ></Button>
+        ></Button>
     </View>
   );
 }
+
+    const styles = StyleSheet.create({
+        button: {
+            backgroundColor: "#009b3a"      
+          },
+    })
+

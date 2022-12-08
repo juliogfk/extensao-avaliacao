@@ -24,11 +24,16 @@ export default function InicialScreen({navigation, route}) {
     return (
 
         <View style={styles.container}>
-
+                <Header
+        centerComponent={{ text: "Cadastre-se", style: { color: "#fff", fontSize:20 } }}
+        leftComponent={
+          <Button title="<" onPress={() => navigation.navigate("Home")} />
+        }
+      />
             <View style={{flex:1}}>
 
             </View>
-            <View style={{ flex: 2, padding: 30,}}>
+            <View style={{ flex: 3, padding: 30,}}>
               <Text style={{display:"flex",alignItems:"center",fontSize: 20, padding:10}}>
                   Email
               </Text>
@@ -40,7 +45,7 @@ export default function InicialScreen({navigation, route}) {
             
               <Button 
               buttonStyle={styles.button} 
-              onPress={() => navigation.navigate('Home')}
+              onPress={() => navigation.navigate('Listar')}
               title="Salvar"
             />
             </View>

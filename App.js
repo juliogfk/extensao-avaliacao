@@ -6,6 +6,7 @@ import { Button } from 'react-native-elements';
 import HomeScreen from "./screens/Home";
 import InicialScreen from "./screens/Inicial";
 import ListaScreen from "./screens/Listar";
+import InserirScreen from "./screens/Inserir";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +14,8 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="Listar" component={ListaScreen} />
+        <Stack.Screen name="Listar" component={ListaScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="Inserir" component={InserirScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Usuário" component={InicialScreen} />
       </Stack.Navigator>

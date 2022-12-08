@@ -7,6 +7,7 @@ import HomeScreen from "./screens/Home";
 import InicialScreen from "./screens/Inicial";
 import ListaScreen from "./screens/Listar";
 import InserirScreen from "./screens/Inserir";
+import AlterarScreen from "./screens/Alterar";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="Listar" component={ListaScreen} options={{headerShown: false}}/>
         <Stack.Screen name="Inserir" component={InserirScreen} />
+        <Stack.Screen name="Alterar" component={AlterarScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Usuário" component={InicialScreen} />
       </Stack.Navigator>

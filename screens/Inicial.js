@@ -6,7 +6,21 @@ import reactDom from 'react-dom';
 import { StyleSheet, Text, View} from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 
-export default function InicialScreen({navigation}) {
+export default function InicialScreen({navigation, route}) {
+    
+  const [quantidade, setQuantidade] = useState(0);
+  const [nome, setNome] = useState(0);
+
+  useEffect(() => {
+    if(route.params) {
+      const {quantidade} = route.params;
+      const {nome} = route.params;
+
+      setQuantidade(quantidade);
+      setNome(nome);
+    }
+  },[])
+  
     return (
 
         <View style={styles.container}>

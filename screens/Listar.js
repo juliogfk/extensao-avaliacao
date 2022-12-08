@@ -12,7 +12,8 @@ export default function ListaScreen({ route, navigation }) {
 
   useEffect(() => {
     function consultarDados() {
-      axios.get("http://professornilson.com/testeservico/clientes")
+      axios
+        .get("http://professornilson.com/testeservico/clientes")
         .then(function (response) {
           setList(response.data);
         })
@@ -27,14 +28,20 @@ export default function ListaScreen({ route, navigation }) {
     <View>
       <Header
         centerComponent={{ text: "Listar", style: { color: "#fff" } }}
-        rightComponent={<Button
-            title="+"
-            onPress={() => navigation.navigate('Inserir')}
-          />}
+        rightComponent={
+          <Button title="+" 
+          onPress={() => navigation.navigate("Inserir")} />
+        }
       />
       <ScrollView>
         {list.map((linha, i) => (
-          <ListItem key={i} bottomDivider>
+          <ListItem key={i} bottomDivider onPress={() => navigation.navigate("Alterar", 
+          {
+            nome: linha.nome,
+            telefone: linha.telefone,
+            cpf: linha.cpf,
+            id: linha.id
+          })}>
             <Avatar source={{ uri: linha.avatar_url }} />
             <ListItem.Content>
               <ListItem.Title>{linha.nome}</ListItem.Title>

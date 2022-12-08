@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useIsFocused } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Button, Input, Avatar, Header, ListItem } from "react-native-elements";
 import reactDom from "react-dom";
@@ -8,7 +8,9 @@ import axios from "axios";
 import { ScrollView } from "react-native-gesture-handler";
 
 export default function ListaScreen({ route, navigation }) {
-  const [list, setList] = useState([]);
+  
+    const [list, setList] = useState([]);
+    const refresh = useIsFocused();
 
   useEffect(() => {
     function consultarDados() {
@@ -22,26 +24,30 @@ export default function ListaScreen({ route, navigation }) {
         });
     }
     consultarDados();
-  }, []);
+  }, [refresh]);
 
   return (
     <View>
       <Header
         centerComponent={{ text: "Listar", style: { color: "#fff" } }}
         rightComponent={
-          <Button title="+" 
-          onPress={() => navigation.navigate("Inserir")} />
+          <Button title="+" onPress={() => navigation.navigate("Inserir")} />
         }
       />
       <ScrollView>
         {list.map((linha, i) => (
-          <ListItem key={i} bottomDivider onPress={() => navigation.navigate("Alterar", 
-          {
-            nome: linha.nome,
-            telefone: linha.telefone,
-            cpf: linha.cpf,
-            id: linha.id
-          })}>
+          <ListItem
+            key={i}
+            bottomDivider
+            onPress={() =>
+              navigation.navigate("Alterar", {
+                nome: linha.nome,
+                telefone: linha.telefone,
+                cpf: linha.cpf,
+                id: linha.id,
+              })
+            }
+          >
             <Avatar source={{ uri: linha.avatar_url }} />
             <ListItem.Content>
               <ListItem.Title>{linha.nome}</ListItem.Title>

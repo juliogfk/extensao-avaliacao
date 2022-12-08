@@ -16,10 +16,10 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Listar" component={ListaScreen} options={{headerShown: false}}/>
-        <Stack.Screen name="Inserir" component={InserirScreen} />
-        <Stack.Screen name="Alterar" component={AlterarScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Usuário" component={InicialScreen} />
+        <Stack.Screen name="Inserir" component={InserirScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="Alterar" component={AlterarScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="Usuário" component={InicialScreen} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

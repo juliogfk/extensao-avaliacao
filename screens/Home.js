@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Button, Input, Avatar, Header, ListItem } from 'react-native-elements';
 import reactDom from 'react-dom';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, TextInput} from 'react-native';
 import axios from "axios";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -31,7 +31,7 @@ export default function HomeScreen({navigation}) {
           <Text style={{display:"flex",alignItems:"center",fontSize:20, padding:10}}>
               Senha
           </Text>
-          <Input style={{backgroundColor:"white",border: "solid"}}></Input>
+          <Input secureTextEntry={true} style={{backgroundColor:"white",border: "solid"}}></Input>
         </View>
         
         <View style={{ flex: 1, padding: 30}}>
@@ -42,7 +42,7 @@ export default function HomeScreen({navigation}) {
           />
           <Button 
           buttonStyle={styles.button2} 
-          onPress={() => navigation.navigate('Usuário')}
+          onPress={() => navigation.navigate('Inserir')}
           title="Cadastre-se"
         />
         </View>

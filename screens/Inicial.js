@@ -35,11 +35,11 @@ export default function InicialScreen({navigation, route}) {
             </View>
             <View style={{ flex: 3, padding: 30,}}>
               <Text style={{display:"flex",alignItems:"center",fontSize: 20, padding:10}}>
-                  Email
+                  Nome
               </Text>
               <Input style={{backgroundColor:"white",border: "solid"}}></Input>
               <Text style={{display:"flex",alignItems:"center",fontSize:20, padding:10}}>
-                  Senha
+                  Email
               </Text>
               <Input style={{backgroundColor:"white",border: "solid"}}></Input>
             

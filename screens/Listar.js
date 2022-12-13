@@ -23,7 +23,7 @@ export default function ListaScreen({ route, navigation }) {
           console.log(error);
         });
 
-  }, []);
+  }, [refresh]);
 
   return (
     <View>
@@ -38,7 +38,7 @@ export default function ListaScreen({ route, navigation }) {
     />
       <ScrollView>
         {list.map((linha, i) => (
-          <ListItem
+          <ListItem 
             key={i}
             bottomDivider
             onPress={() =>

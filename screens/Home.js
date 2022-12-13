@@ -42,7 +42,7 @@ export default function HomeScreen({navigation}) {
           />
           <Button 
           buttonStyle={styles.button2} 
-          onPress={() => navigation.navigate('Inserir')}
+          onPress={() => navigation.navigate('InserirUsuario')}
           title="Cadastre-se"
         />
         </View>

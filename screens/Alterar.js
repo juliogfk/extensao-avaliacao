@@ -8,35 +8,35 @@ import { ScrollView } from "react-native-gesture-handler";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 
 export default function AlterarScreen({ route, navigation }) {
-  const [getNome, setNome] = useState();
-  const [getTelefone, setTelefone] = useState();
-  const [getCpf, setCpf] = useState();
+  const [getProduto, setProduto] = useState();
+  const [getArmazenamento, setArmazenamento] = useState();
+  const [getValor, setValor] = useState();
   const [getId, setId] = useState();
 
   useEffect(() => {
     if (route.params) {
-      const { nome } = route.params;
-      const { telefone } = route.params;
-      const { cpf } = route.params;
+      const { produto } = route.params;
+      const { armazenamento } = route.params;
+      const { valor } = route.params;
       const { id } = route.params;
 
-      setNome(nome);
-      setTelefone(telefone);
-      setCpf(cpf);
+      setProduto(produto);
+      setArmazenamento(armazenamento);
+      setValor(valor);
       setId(id);
     }
   }, []);
 
   function alterarDados() {
     axios
-      .put("http://professornilson.com/testeservico/clientes/" + getId, {
-        nome: getNome,
-        telefone: getTelefone,
-        cpf: getCpf,
+      .put("http://localhost:5000/produtos/" + getId, {
+        produto: getProduto,
+        armazenamento: getArmazenamento,
+        valor: getValor,
       })
       .then(function (response) {
         showMessage({
-            message:"Registro Alterado",
+            message:"Produto Alterado",
             type:"success",
         });
       }).catch(function (error) {
@@ -46,16 +46,16 @@ export default function AlterarScreen({ route, navigation }) {
 
   function excluirDados() {
     axios
-      .delete("http://professornilson.com/testeservico/clientes/" + getId)
+      .delete("http://localhost:5000/produtos/" + getId)
       .then(function (response) {
             showMessage({
-                message:"Registro Excluído",
+                message:"Produto Excluído",
                 type:"danger",
             });
         
-            setNome(null);
-            setTelefone(null);
-            setCpf(null);
+            setProduto(null);
+            setArmazenamento(null);
+            setValor(null);
             setId(null);
       })
       .catch(function (error) {
@@ -72,25 +72,25 @@ export default function AlterarScreen({ route, navigation }) {
         }
       />
 
-      <Text>Digite seu nome</Text>
+      <Text>Digite o produto</Text>
       <TextInput
         style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1 }}
-        onChangeText={(text) => setNome(text)}
-        value={getNome}
+        onChangeText={(text) => setProduto(text)}
+        value={getProduto}
       />
 
-      <Text>Digite seu telefone</Text>
+      <Text>Digite seu armazenamento</Text>
       <TextInput
         style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1 }}
-        onChangeText={(text) => setTelefone(text)}
-        value={getTelefone}
+        onChangeText={(text) => setArmazenamento(text)}
+        value={getArmazenamento}
       />
 
-      <Text>Digite seu CPF</Text>
+      <Text>Digite seu valor</Text>
       <TextInput
         style={{ height: 40, width: 300, borderColor: "grey", borderWidth: 1 }}
-        onChangeText={(text) => setCpf(text)}
-        value={getCpf}
+        onChangeText={(text) => setValor(text)}
+        value={getValor}
       />
 
       <Button

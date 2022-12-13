@@ -7,26 +7,21 @@ import { Button, Avatar, Header, ListItem } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 
-export default function InserirScreen({ route, navigation }) {
-  const [getProduto, setProduto] = useState();
-  const [getArmazenamento, setArmazenamento] = useState();
-  const [getValor, setValor] = useState();
+export default function InserirUsuarioScreen({ route, navigation }) {
+  const [getNome, setNome] = useState();
+  const [getEmail, setEmail] = useState();
+  const [getSenha, setSenha] = useState();
 
   async function inserirDados() {
     await axios
-      .post(
-        "http://localhost:5000/produtos/",
-      {
-        produto: getProduto,
-        armazenamento: getArmazenamento,
-        valor: getValor,
-      }, 
-      {
-        "Content-Type":"application/json"
+      .post("http://localhost:5000/clientes/", {
+        nome: getNome,
+        email: getEmail,
+        senha: getSenha,
       })
       .then(function (response) {
         showMessage({
-          message: "Produto Inserido",
+          message: "Cliente cadastrado",
           type: "success",
         });
       })
@@ -40,15 +35,15 @@ export default function InserirScreen({ route, navigation }) {
       <FlashMessage position="top" />
       <Header
         centerComponent={{
-          text: "Inserir Produtos",
+          text: "Cadastrar Cliente",
           style: { color: "#fff", fontSize: 20 },
         }}
         leftComponent={
-          <Button title="<" onPress={() => navigation.navigate("Listar")} />
+          <Button title="<" onPress={() => navigation.navigate("Home")} />
         }
       />
       <View style={{ marginTop: 150 }}>
-        <Text>Digite o produto</Text>
+        <Text>Digite o nome</Text>
         <TextInput
           style={{
             height: 40,
@@ -57,11 +52,11 @@ export default function InserirScreen({ route, navigation }) {
             borderWidth: 1,
             marginBottom: 10,
           }}
-          onChangeText={(text) => setProduto(text)}
-          value={getProduto}
+          onChangeText={(text) => setNome(text)}
+          value={getNome}
         />
 
-        <Text>Digite o armazenamento</Text>
+        <Text>Digite o email</Text>
         <TextInput
           style={{
             height: 40,
@@ -70,11 +65,11 @@ export default function InserirScreen({ route, navigation }) {
             borderWidth: 1,
             marginBottom: 10,
           }}
-          onChangeText={(text) => setArmazenamento(text)}
-          value={getArmazenamento}
+          onChangeText={(text) => setEmail(text)}
+          value={getEmail}
         />
 
-        <Text>Digite o valor</Text>
+        <Text>Digite a senha</Text>
         <TextInput
           style={{
             height: 40,
@@ -83,16 +78,16 @@ export default function InserirScreen({ route, navigation }) {
             borderWidth: 1,
             marginBottom: 10,
           }}
-          onChangeText={(text) => setValor(text)}
-          value={getValor}
+          onChangeText={(text) => setSenha(text)}
+          value={getSenha}
         />
       </View>
 
       <Button
         buttonStyle={styles.button}
-        title="Salvar Dados"
+        title="Salvar"
         style={{ paddingTop: 20, width: 300 }}
-        onPress={inserirDados}
+        onPress={() => inserirDados()}
       ></Button>
     </View>
   );
